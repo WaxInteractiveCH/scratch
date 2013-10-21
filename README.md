@@ -34,8 +34,11 @@ TBD
 #### Just Test - `grunt test`
 Runs [JSHint](http://jshint.com) and [QUnit](http://qunitjs.com/) tests headlessly in [PhantomJS](http://phantomjs.org/) (used for CI).
 
+
 ## On the Inside...
 
 ### Origins
 
-This project was originally initialized with Yeoman using the webapp generator including Twitter Bootstrap for Sass, RequireJS, and Modernizr.  `yo webapp`
+This project was originally initialized with Yeoman using the webapp generator including Twitter Bootstrap for Sass, RequireJS, and Modernizr.  
+
+`yo webapp`
