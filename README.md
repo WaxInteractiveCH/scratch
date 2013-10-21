@@ -42,3 +42,28 @@ Runs [JSHint](http://jshint.com) and [QUnit](http://qunitjs.com/) tests headless
 This project was originally initialized with Yeoman using the webapp generator including Twitter Bootstrap for Sass, RequireJS, and Modernizr.  
 
 `yo webapp`
+
+### Built with
+
+Scratch is using 
+- **GruntJS** to compile, build, and do almost everything
+- **Bower** for front-end dependencies
+- **Mocha** for JS testing
+- **Sass** for some awesome pre-processed CSS development
+- **RequireJS** for AMD JS development
+- **[Assemble](http://assemble.io/)** for templating and PHP-like partial/includes in HTML files - *coming very soon*
+
+
+
+## Authors
+
+**Andy McFee**
+
++ <http://twitter.com/andymcfee>
++ <http://github.com/andymcfee>
+
+
+
+## Copyright and license
+
+Copyright 2013 SQLI Agency CH, Inc under [the MIT license](LICENSE).
