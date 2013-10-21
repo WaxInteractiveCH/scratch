@@ -19,6 +19,20 @@ module.exports = function (grunt) {
       app: 'app',
       dist: 'dist'
     },
+    assemble: {
+      options: {
+        flatten: true,
+        layout: 'default.hbs',
+        layoutdir: '<%= yeoman.app %>/templates/layouts',
+        assets: 'dist/images',
+        partials: ['<%= yeoman.app %>/templates/partials/*.hbs']
+      },
+      dist: {
+        files: {
+          '.tmp/': ['<%= yeoman.app %>/templates/pages/*.hbs']
+        }
+      }
+    },
     watch: {
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -139,7 +153,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.tmp/styles/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '<%= yeoman.dist %>/styles/'
         }]
       }
     },
@@ -243,7 +257,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>',
+          cwd: '.tmp',
           src: '*.html',
           dest: '<%= yeoman.dist %>'
         }]
@@ -336,8 +350,8 @@ module.exports = function (grunt) {
     'clean:dist',
     'useminPrepare',
     'concurrent:dist',
-    'autoprefixer',
-    'requirejs',
+    'autoprefixer:dist',
+    //'requirejs',
     'concat',
     'cssmin',
     'uglify',

@@ -54,7 +54,6 @@ Scratch is using
 - **[Assemble](http://assemble.io/)** for templating and PHP-like partial/includes in HTML files - *coming very soon*
 
 
-
 ## Authors
 
 **Andy McFee**
