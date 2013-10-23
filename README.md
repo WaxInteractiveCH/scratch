@@ -1,6 +1,6 @@
 Scratch
 ================
-### A Sample Static-Site Project Architecture
+### An example of a static-site project architecture
 
 **Scratch** is a functional reference project for the front-end architecture of a static-site web project.  It's built by and for for [SQLI Agency Switzerland](https://github.com/sqliagencych), but if you find it useful, feel free to clone, fork or report issues.  
 
@@ -25,8 +25,8 @@ When completed, you'll be able to run the various Grunt commands provided from t
 
 
 ### Grunt Commands
-#### Test & Build - `grunt`
-TBD
+#### JSHint, Test, & Build - `grunt`
+The `grunt` command will hint your JS, run mocha tests and build your entire site into a ready-to-deploy `dist/` directory.
 
 #### Local Server - `grunt server`
 `grunt server` will fire up a local server automatically and refresh the page whenever you save your files. It's pretty cool.  
@@ -39,9 +39,9 @@ Runs [JSHint](http://jshint.com) and [QUnit](http://qunitjs.com/) tests headless
 
 ### Origins
 
-This project was originally initialized with Yeoman using the webapp generator including Twitter Bootstrap for Sass, RequireJS, and Modernizr.  
+This project was originally initialized with Yeoman using the webapp generator including Twitter Bootstrap for Sass and Modernizr (RequireJS was omitted for now because this is just a static site so AMD loading seems a bit much, but who knows...).  
 
-`yo webapp`
+`yo webapp` 
 
 ### Built with
 
@@ -50,7 +50,7 @@ Scratch is using
 - **Bower** for front-end dependencies
 - **Mocha** for JS testing
 - **Sass** for some awesome pre-processed CSS development
-- **[Assemble](http://assemble.io/)** for templating and PHP-like partial/includes in HTML files - *coming very soon*
+- **[Assemble](http://assemble.io/)** for building HTML templates and PHP-like partial/includes.
 
 
 ## Authors
