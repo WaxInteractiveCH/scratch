@@ -50,7 +50,6 @@ Scratch is using
 - **Bower** for front-end dependencies
 - **Mocha** for JS testing
 - **Sass** for some awesome pre-processed CSS development
-- **RequireJS** for AMD JS development
 - **[Assemble](http://assemble.io/)** for templating and PHP-like partial/includes in HTML files - *coming very soon*
 
 

@@ -1,6 +1,6 @@
 {
-  "name": "scratch2",
-  "version": "0.0.0",
+  "name": "scratch",
+  "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -24,7 +24,8 @@
     "grunt-svgmin": "~0.2.0",
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.1.0",
-    "time-grunt": "~0.1.1"
+    "time-grunt": "~0.1.1",
+    "assemble": "~0.4.14"
   },
   "engines": {
     "node": ">=0.8.0"
