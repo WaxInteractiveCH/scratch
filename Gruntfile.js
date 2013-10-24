@@ -117,7 +117,11 @@ module.exports = function (grunt) {
         layout: 'default.hbs',
         layoutdir: '<%= yeoman.app %>/templates/layouts',
         assets: 'dist/images',
-        partials: ['<%= yeoman.app %>/templates/partials/*.hbs']
+        partials: ['<%= yeoman.app %>/templates/partials/*.hbs'],
+        plugins: ['permalinks'],
+        permalinks: {
+          preset: 'pretty'
+        }
       },
       dist: {
         files: {

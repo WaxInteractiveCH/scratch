@@ -25,7 +25,8 @@
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.1",
-    "assemble": "~0.4.14"
+    "assemble": "~0.4.14",
+    "permalinks": "~0.1.8"
   },
   "engines": {
     "node": ">=0.8.0"
