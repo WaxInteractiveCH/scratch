@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/templates/layouts/*.hbs',
                 '<%= yeoman.app %>/templates/pages/*.hbs',
                 '<%= yeoman.app %>/templates/partials/*.hbs'],
-        tasks: ['assemble:server']
+        tasks: ['assemble']
       }
     },
     connect: {
@@ -120,15 +120,10 @@ module.exports = function (grunt) {
         partials: ['<%= yeoman.app %>/templates/partials/*.hbs'],
         plugins: ['permalinks'],
         permalinks: {
-          preset: 'pretty'
+          structure: ':basename/index.html'
         }
       },
       dist: {
-        files: {
-          '.tmp/': ['<%= yeoman.app %>/templates/pages/*.hbs']
-        }
-      },
-      server: {
         files: {
           '.tmp/': ['<%= yeoman.app %>/templates/pages/*.hbs']
         }
@@ -267,7 +262,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '.tmp',
-          src: '*.html',
+          src: '**/*.html',
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -275,19 +270,26 @@ module.exports = function (grunt) {
     // Put files not handled in other tasks here
     copy: {
       dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            'images/{,*/}*.{webp,gif}',
-            'styles/fonts/{,*/}*.*',
-            'bower_components/sass-bootstrap/fonts/*.*'
-          ]
-        }]
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>',
+            src: [
+              '*.{ico,png,txt}',
+              '.htaccess',
+              'images/{,*/}*.{webp,gif}',
+              'styles/fonts/{,*/}*.*'
+            ]
+          },
+          { // Font Awesome font files, not otf. Eww.
+            expand: true,
+            cwd: '<%= yeoman.app %>/bower_components/font-awesome/fonts/',
+            src: ['**', '!*.otf'],
+            dest: '<%= yeoman.dist %>/fonts/'
+          }
+        ]
       },
       styles: {
         expand: true,
@@ -295,11 +297,18 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      fonts: {
+        expand: true,
+        dot: true,
+        cwd: '<%= yeoman.app %>/bower_components/font-awesome/fonts/',
+        dest: '.tmp/fonts/',
+        src: ['**', '!.otf']
       }
     },
     modernizr: {
       devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
-      outputFile: '<%= yeoman.dist %>/bower_components/modernizr/modernizr.js',
+      outputFile: '<%= yeoman.dist %>/scripts/vendor/modernizr.js',
       files: [
         '<%= yeoman.dist %>/scripts/{,*/}*.js',
         '<%= yeoman.dist %>/styles/{,*/}*.css',
@@ -309,12 +318,14 @@ module.exports = function (grunt) {
     },
     concurrent: {
       server: [
-        'assemble:server',
+        'assemble',
         'compass',
-        'copy:styles'
+        'copy:styles',
+        'copy:fonts'
       ],
       test: [
-        'copy:styles'
+        'copy:styles',
+        'copy:fonts'
       ],
       dist: [
         'compass',
@@ -350,7 +361,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'assemble:dist',
+    'assemble',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
