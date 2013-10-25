@@ -61,7 +61,15 @@ Scratch is using
 + <http://twitter.com/andymcfee>
 + <http://github.com/andymcfee>
 
+## Documenting To Do...
+- Using Assemble
+- Font-Awesome + Bower + Grunt
+- Permalinks for Assemble
 
+## Things To Add
+- A "blog"
+- Actual JS testing
+- Deploy to gh-pages
 
 ## Copyright and license
 
