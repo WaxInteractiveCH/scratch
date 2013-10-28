@@ -1,0 +1,148 @@
+---
+title: Scratch
+slug: code
+---
+  <div class="container">
+    <div class="header">
+      {{>nav}}
+      <h3 class="text-muted">Scratch</h3>
+    </div>
+
+    <div class="jumbotron">
+      <h1>Code <i class="fa fa-code"></i></h1>
+      <p class="lead">This is how we do syntax highlighting...</p>
+    </div>
+
+    <div class="row marketing">
+      <div class="col-lg-12">
+
+
+{{#markdown}}
+## Syntax Highlighting
+
+For syntax highlighting, we are going to use Lea Verou's [PrismJS](http://prismjs.com/).
+
+#### Why PrismJS?
+
+Because it's pretty, it's easy and it works. That's why.
+
+#### How are we using it?
+
+First, went and got a [custum build](http://prismjs.com/download.html) which included the line-numbers plugin.  More on that...
+
+The first thing we did was add the JS and CSS in the relevant places:
+
+`scripts.hbs`
+```markup
+<!-- build:js /scripts/plugins.js -->
+...
+<script src="/scripts/vendor/prism.js"></script>
+<!-- endbuild -->
+```
+
+And I dropped the CSS into a `_syntax.scss` file and imported it in my main Sass file.
+
+`main.scss`
+```scss
+@import 'syntax';
+```
+
+So how do you ACTUALLY use it? Well, it's quite simple: you use markdown. Since we are using Assemble, we can embed markdown anywhere in our `.hbs` files with the *built-in* markdown helper:
+
+```markdown
+\{{#markdown}}
+Put your markdown here. *Yay.*
+\{{/markdown}}
+```
+
+Inside that markdown you can put your code.   Let's say you want to embed a bit of Javascript:
+
+```
+console.log("Hello, cruel world.");
+```
+
+To embed this, you would write it like so:
+
+<pre><code>\{{#markdown}}
+```javascript
+console.log("Hello, cruel world.");
+```
+\{{/markdown}}</code></pre>
+
+And it will look like this:
+
+```javascript
+console.log("Hello, cruel world.");
+```
+
+#### But HTML!
+
+The first thing you need to remember is that it's called markup, not HTML. You write this:
+
+<pre><code>```markup
+&lt;div class=&quot;jumbotron&quot;&gt;
+  &lt;h1&gt;Code &lt;i class=&quot;fa fa-code&quot;&gt;&lt;/i&gt;&lt;/h1&gt;
+  &lt;p class=&quot;lead&quot;&gt;This is how we do syntax highlighting..&lt;/p&gt;
+&lt;/div&gt;
+```</code></pre>
+
+And you get this:
+
+```markup
+<div class="jumbotron">
+  <h1>Code <i class="fa fa-code"></i></h1>
+  <p class="lead">This is how we do syntax highlighting..</p>
+</div>
+```
+
+#### Line Numbers
+
+Ok, you want line numbers? You have to cheat a little bit.
+
+<pre><code>&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;.class {
+  font-weight: bold;
+  color: #ff0;
+  font-size: 2rem;
+}&lt;/code&gt;&lt;/pre&gt;</code></pre>
+
+Few things to note above:
+
+1. Be sure your first line of your code is on the same line as your opening `<pre><code>` tags.  Same goes for you last line/closing tags.
+2. `languages-css` should be `language-*` where `*` is the syntax you are highlighting.
+
+And voila:
+
+<pre class="line-numbers"><code class="language-css">.class {
+  font-weight: bold;
+  color: #ff0;
+  font-size: 2rem;
+}</code></pre>
+
+Once again, HTML is SLIGHTLY different.  If you want to use line numbers, *you will have to encode your markup into html entities.*  Fortunately, there are lots of tools to easily do this. I use [htmlentities.net](http://htmlentities.net/).
+
+So you'll do something like this (brace yourself, it's messy):
+
+```
+<pre class="line-numbers language-markup"><code>&lt;div class=&quot;jumbotron&quot;&gt;
+  &lt;h1&gt;Code &lt;i class=&quot;fa fa-code&quot;&gt;&lt;/i&gt;&lt;/h1&gt;
+  &lt;p class=&quot;lead&quot;&gt;This is how we do syntax highlighting..&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+```
+And if your eyes are still working, you'll end up with this:
+
+<pre class="line-numbers language-markup"><code>&lt;div class=&quot;jumbotron&quot;&gt;
+  &lt;h1&gt;Code &lt;i class=&quot;fa fa-code&quot;&gt;&lt;/i&gt;&lt;/h1&gt;
+  &lt;p class=&quot;lead&quot;&gt;This is how we do syntax highlighting..&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+Phew.  That was fun.
+
+{{/markdown}}
+
+      </div>
+    </div>
+  </div>
+
+
+
+
