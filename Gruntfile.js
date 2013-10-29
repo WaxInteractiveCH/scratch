@@ -84,13 +84,13 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '.tmp',
+            '.tmp/**/*',
             '<%= yeoman.dist %>/*',
             '!<%= yeoman.dist %>/.git*'
           ]
         }]
       },
-      server: '.tmp'
+      server: '.tmp/**/*'
     },
     jshint: {
       options: {
@@ -283,7 +283,7 @@ module.exports = function (grunt) {
               'styles/fonts/{,*/}*.*'
             ]
           },
-          { // Font Awesome font files, not otf. Eww.
+          {
             expand: true,
             cwd: '<%= yeoman.app %>/bower_components/font-awesome/fonts/',
             src: ['**', '!*.otf'],
