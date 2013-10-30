@@ -26,7 +26,8 @@
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.1",
     "assemble": "~0.4.14",
-    "permalinks": "~0.1.8"
+    "permalinks": "~0.1.8",
+    "grunt-gh-pages": "~0.8.1"
   },
   "engines": {
     "node": ">=0.8.0"

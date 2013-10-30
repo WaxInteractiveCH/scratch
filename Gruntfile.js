@@ -230,6 +230,14 @@ module.exports = function (grunt) {
         }]
       }
     },
+
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
+    },
+
     cssmin: {
       // This task is pre-configured if you do not wish to use Usemin
       // blocks for your CSS. By default, the Usemin block from your
@@ -370,7 +378,7 @@ module.exports = function (grunt) {
     'uglify',
     'modernizr',
     'copy:dist',
-    'rev',
+    //'rev',
     'usemin'
   ]);
 
@@ -379,4 +387,11 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('deploy', [
+    'build',
+    'gh-pages'
+  ]);
+
+
 };
