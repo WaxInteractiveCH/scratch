@@ -1,8 +1,12 @@
 node_modules
 dist
+.grunt
 .tmp
 .sass-cache
 app/bower_components
+
+
+# Editors
 *.sublime-project
 *.sublime-workspace
-/nbproject/private/
+nbproject
