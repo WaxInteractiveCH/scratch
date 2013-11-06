@@ -22,11 +22,11 @@ module.exports = function (grunt) {
     },
     watch: {
       compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        files: ['<%= yeoman.app %>/scss/{,*/}*.css'],
         tasks: ['copy:styles', 'autoprefixer']
       },
       livereload: {
@@ -35,15 +35,15 @@ module.exports = function (grunt) {
         },
         files: [
           '.tmp/*.html',
-          '.tmp/styles/{,*/}*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
+          '.tmp/css/*.css',
+          '{.tmp,<%= yeoman.app %>}/js/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       },
       assemble: {
-        files: ['<%= yeoman.app %>/templates/layouts/*.hbs',
-                '<%= yeoman.app %>/templates/pages/*.hbs',
-                '<%= yeoman.app %>/templates/partials/*.hbs'],
+        files: ['<%= yeoman.app %>/assemble/layouts/*.hbs',
+                '<%= yeoman.app %>/assemble/pages/*.hbs',
+                '<%= yeoman.app %>/assemble/partials/*.hbs'],
         tasks: ['assemble']
       }
     },
@@ -98,8 +98,8 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js',
-        '!<%= yeoman.app %>/scripts/vendor/*',
+        '<%= yeoman.app %>/js/{,*/}*.js',
+        '!<%= yeoman.app %>/js/vendor/*',
         'test/spec/{,*/}*.js'
       ]
     },
@@ -115,9 +115,10 @@ module.exports = function (grunt) {
       options: {
         flatten: true,
         layout: 'default.hbs',
-        layoutdir: '<%= yeoman.app %>/templates/layouts',
+        layoutdir: '<%= yeoman.app %>/assemble/layouts',
         assets: 'dist/images',
-        partials: ['<%= yeoman.app %>/templates/partials/*.hbs'],
+        partials: ['<%= yeoman.app %>/assemble/partials/*.hbs'],
+        helpers: ['helper-path'],
         plugins: ['permalinks'],
         permalinks: {
           structure: ':basename/index.html'
@@ -125,22 +126,22 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          '.tmp/': ['<%= yeoman.app %>/templates/pages/*.hbs']
+          '.tmp/': ['<%= yeoman.app %>/assemble/pages/*.hbs']
         }
       }
     },
     compass: {
       options: {
         sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
+        cssDir: '.tmp/css',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/bower_components',
+        javascriptsDir: '<%= yeoman.app %>/js',
+        fontsDir: '<%= yeoman.app %>/scss/fonts',
+        importPath: '<%= yeoman.app %>/_bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
+        httpFontsPath: '/css/fonts',
         relativeAssets: false,
         assetCacheBuster: false
       },
@@ -162,9 +163,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '.tmp/css/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '.tmp/css/'
         }]
       }
     },
@@ -189,16 +190,17 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
+            '<%= yeoman.dist %>/js/{,*/}*.js',
+            '<%= yeoman.dist %>/css/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-            '<%= yeoman.dist %>/styles/fonts/{,*/}*.*'
+            '<%= yeoman.dist %>/css/fonts/{,*/}*.*'
           ]
         }
       }
     },
     useminPrepare: {
       options: {
+        root: '.tmp',
         dest: '<%= yeoman.dist %>'
       },
       html: '.tmp/index.html'
@@ -208,7 +210,7 @@ module.exports = function (grunt) {
         dirs: ['<%= yeoman.dist %>']
       },
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
+      css: ['<%= yeoman.dist %>/css/{,*/}*.css']
     },
     imagemin: {
       dist: {
@@ -247,9 +249,9 @@ module.exports = function (grunt) {
       //
       // dist: {
       //     files: {
-      //         '<%= yeoman.dist %>/styles/main.css': [
-      //             '.tmp/styles/{,*/}*.css',
-      //             '<%= yeoman.app %>/styles/{,*/}*.css'
+      //         '<%= yeoman.dist %>/css/main.css': [
+      //             '.tmp/css/{,*/}*.css',
+      //             '<%= yeoman.app %>/scss/{,*/}*.css'
       //         ]
       //     }
       // }
@@ -293,7 +295,7 @@ module.exports = function (grunt) {
           },
           {
             expand: true,
-            cwd: '<%= yeoman.app %>/bower_components/font-awesome/fonts/',
+            cwd: '<%= yeoman.app %>/_bower_components/font-awesome/fonts/',
             src: ['**', '!*.otf'],
             dest: '<%= yeoman.dist %>/fonts/'
           }
@@ -303,24 +305,24 @@ module.exports = function (grunt) {
         expand: true,
         dot: true,
         cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
+        dest: '.tmp/css/',
         src: '{,*/}*.css'
       },
       fonts: {
         expand: true,
         dot: true,
-        cwd: '<%= yeoman.app %>/bower_components/font-awesome/fonts/',
+        cwd: '<%= yeoman.app %>/_bower_components/font-awesome/fonts/',
         dest: '.tmp/fonts/',
         src: ['**', '!.otf']
       }
     },
     modernizr: {
-      devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
-      outputFile: '<%= yeoman.dist %>/scripts/vendor/modernizr.js',
+      devFile: '<%= yeoman.app %>/_bower_components/modernizr/modernizr.js',
+      outputFile: '<%= yeoman.dist %>/js/vendor/modernizr.js',
       files: [
-        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-        '<%= yeoman.dist %>/styles/{,*/}*.css',
-        '!<%= yeoman.dist %>/scripts/vendor/*'
+        '<%= yeoman.dist %>/js/{,*/}*.js',
+        '<%= yeoman.dist %>/css/{,*/}*.css',
+        '!<%= yeoman.dist %>/js/vendor/*'
       ],
       uglify: true
     },

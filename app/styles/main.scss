@@ -1,7 +1,7 @@
-$icon-font-path: "/bower_components/font-awesome/fonts/";
+$icon-font-path: "/_bower_components/font-awesome/fonts/";
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'font-awesome/scss/font-awesome';
-@import 'syntax';
+@import 'prism';
 
 .browsehappy {
   margin: 0.2em 0;

@@ -47,11 +47,11 @@ This project was originally initialized with Yeoman using the webapp generator i
 
 Scratch is using 
 - **GruntJS** to compile, build, and do almost everything
-- **[Assemble](http://assemble.io/)** for building HTML templates and PHP-like partial/includes.
 - **Bower** for front-end dependencies
+- **[Assemble](http://assemble.io/)** for building HTML templates and PHP-like partial/includes.
 - **Font Awesome** for awesome font icons
-- **Mocha** for JS testing
-- **Sass** for some awesome pre-processed CSS development
+- **[PrismJS](http://prismjs.com/index.html)** for syntax highlighting
+- **Sass** for some awesome pre-processed CSS
 
 
 ## Authors
@@ -68,7 +68,7 @@ Scratch is using
 
 ## Things To Add
 - A "blog"
-- Actual JS testing
+- Actual JS testing with Mocha
 - Deploy to gh-pages
 
 ## Copyright and license

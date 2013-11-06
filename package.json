@@ -1,6 +1,10 @@
 {
   "name": "scratch",
   "version": "0.1.0",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/SQLIagencych/scratch.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -18,14 +22,14 @@
     "grunt-contrib-watch": "~0.5.2",
     "grunt-rev": "~0.1.0",
     "grunt-autoprefixer": "~0.2.0",
-    "grunt-usemin": "~0.1.10",
+    "grunt-usemin": "~2.0.0",
     "grunt-mocha": "~0.4.0",
     "grunt-modernizr": "~0.3.0",
     "grunt-svgmin": "~0.2.0",
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.1",
-    "assemble": "~0.4.14",
+    "assemble": "~0.4.17",
     "permalinks": "~0.1.8",
     "grunt-gh-pages": "~0.8.1"
   },
