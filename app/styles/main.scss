@@ -90,3 +90,14 @@ body {
     border-bottom: 0;
   }
 }
+
+.les-icons {
+  i {
+    // Just for the lolz. This is bad. Do not do this for real. -Andy
+    @for $i from 1 through 370 {
+      &:nth-child(#{$i}) {
+        color: hsla($i / 2 + 200, 75, 50, 1);
+      }
+    }
+  }
+}
