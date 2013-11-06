@@ -154,6 +154,11 @@ module.exports = function (grunt) {
         options: {
           debugInfo: true
         }
+      },
+      test: {
+        options: {
+          debugInfo: false
+        }
       }
     },
     autoprefixer: {
@@ -326,6 +331,25 @@ module.exports = function (grunt) {
       ],
       uglify: true
     },
+
+    recess: {
+      dist: {
+        options: {
+          compile: false,              // Compiles CSS or LESS. Fixes white space and sort order.
+          compress: false,             // Compress your compiled code
+          noIDs: true,                 // Doesn't complain about using IDs in your stylesheets
+          noJSPrefix: true,            // Doesn't complain about styling .js- prefixed classnames
+          noOverqualifying: true,      // Doesn't complain about overqualified selectors (ie: div#foo.bar)
+          noUnderscores: true,         // Doesn't complain about using underscores in your class names
+          noUniversalSelectors: true,  // Doesn't complain about using the universal * selector
+          prefixWhitespace: true,      // Adds whitespace prefix to line up vender prefixed properties
+          strictPropertyOrder: false,  // Complains if not strict property order
+          zeroUnits: true,            // Doesn't complain if you add units to values of 0
+          //includePath: mixed          // Additional paths to look for `@import`'ed LESS files.  Accepts a string or an array of strings.
+        },
+        src: ['.tmp/css/main.css']
+      }
+    },
     concurrent: {
       server: [
         'assemble',
@@ -393,6 +417,12 @@ module.exports = function (grunt) {
   grunt.registerTask('deploy', [
     'build',
     'gh-pages'
+  ]);
+
+  grunt.registerTask('csslint', [
+    'clean:server',
+    'compass:test',
+    'recess'
   ]);
 
 

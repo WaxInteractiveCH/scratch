@@ -2,8 +2,8 @@
   "name": "scratch",
   "version": "0.1.0",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/SQLIagencych/scratch.git"
+    "type": "git",
+    "url": "https://github.com/SQLIagencych/scratch.git"
   },
   "dependencies": {},
   "devDependencies": {
@@ -31,7 +31,8 @@
     "time-grunt": "~0.1.1",
     "assemble": "~0.4.17",
     "permalinks": "~0.1.8",
-    "grunt-gh-pages": "~0.8.1"
+    "grunt-gh-pages": "~0.8.1",
+    "grunt-recess": "~0.4.0"
   },
   "engines": {
     "node": ">=0.8.0"
