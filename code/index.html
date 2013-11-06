@@ -10,8 +10,8 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="stylesheet" href="styles/main.css"/>
-  <script src="/scripts/vendor/modernizr.js"></script>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script src="/js/vendor/modernizr.js"></script>
 </head>
 <body>
   <!--[if lt IE 10]>
@@ -23,7 +23,7 @@
       <ul class="nav nav-pills pull-right">
   <li class=""><a href="../">Home</a></li>
   <li class=""><a href="../about">About</a></li>
-  <li class="active"><a href="..//code">Code</a></li>
+  <li class="active"><a href="../code">Code</a></li>
 </ul>
       <h3 class="text-muted">Scratch</h3>
     </div>
@@ -55,13 +55,13 @@
 <p><code>main.scss</code></p>
 <pre><code class="language-scss">@import &#39;syntax&#39;;</code></pre>
 <p>So how do you ACTUALLY use it? Well, it&#39;s quite simple: you use markdown. Since we are using Assemble, we can embed markdown anywhere in our <code>.hbs</code> files with the <em>built-in</em> markdown helper:</p>
-<pre><code class="language-markdown">{{#markdown}}
-Put your markdown here. <span class="emphasis">*Yay.*</span>
+<pre><code class="language-markup">{{#markdown}}
+Put your markdown here. *Yay.*
 {{/markdown}}</code></pre>
 <p>Inside that markdown you can put your code.   Let&#39;s say you want to embed a bit of Javascript:</p>
-<pre><code>console.log(&quot;Hello, cruel world.&quot;);</code></pre>
+<pre><code class="language-javascript">console.log(<span class="string">"Hello, cruel world."</span>);</code></pre>
 <p>To embed this, you would write it like so:</p>
-<pre><code>{{#markdown}}
+<pre class="language-markup"><code>{{#markdown}}
 ```javascript
 console.log("Hello, cruel world.");
 ```
@@ -71,7 +71,7 @@ console.log("Hello, cruel world.");
 <pre><code class="language-javascript">console.log(<span class="string">"Hello, cruel world."</span>);</code></pre>
 <h4>But HTML!</h4>
 <p>The first thing you need to remember is that it&#39;s called markup, not HTML. You write this:</p>
-<pre><code>```markup
+<pre class="language-markup"><code>```markup
 &lt;div class=&quot;jumbotron&quot;&gt;
   &lt;h1&gt;Code &lt;i class=&quot;fa fa-code&quot;&gt;&lt;/i&gt;&lt;/h1&gt;
   &lt;p class=&quot;lead&quot;&gt;This is how we do syntax highlighting..&lt;/p&gt;
@@ -85,7 +85,7 @@ console.log("Hello, cruel world.");
 &lt;/div&gt;</code></pre>
 <h4>Line Numbers</h4>
 <p>Ok, you want line numbers? You have to cheat a little bit.</p>
-<pre><code>&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;.class {
+<pre class="language-markup"><code>&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;.class {
   font-weight: bold;
   color: #ff0;
   font-size: 2rem;
@@ -105,7 +105,7 @@ console.log("Hello, cruel world.");
 
 <p>Once again, HTML is SLIGHTLY different.  If you want to use line numbers, <em>you will have to encode your markup into html entities.</em>  Fortunately, there are lots of tools to easily do this. I use <a href="http://htmlentities.net/">htmlentities.net</a>.</p>
 <p>So you&#39;ll do something like this (brace yourself, it&#39;s messy):</p>
-<pre><code>&lt;pre class=&quot;line-numbers language-markup&quot;&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;jumbotron&amp;quot;&amp;gt;
+<pre><code class="language-markup">&lt;pre class=&quot;line-numbers language-markup&quot;&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;jumbotron&amp;quot;&amp;gt;
   &amp;lt;h1&amp;gt;Code &amp;lt;i class=&amp;quot;fa fa-code&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/h1&amp;gt;
   &amp;lt;p class=&amp;quot;lead&amp;quot;&amp;gt;This is how we do syntax highlighting..&amp;lt;/p&amp;gt;
 &amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;</code></pre>
@@ -127,7 +127,7 @@ console.log("Hello, cruel world.");
 
   </div>
 
-    <script src="/scripts/vendor.js"></script>
+    <script src="/js/vendor.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -141,7 +141,7 @@ console.log("Hello, cruel world.");
 
   <script src="/scripts/main.js"></script>
 
-  <script src="/scripts/plugins.js"></script>
+  <script src="/js/plugins.js"></script>
 
 
 
