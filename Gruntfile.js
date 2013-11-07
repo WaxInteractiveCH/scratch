@@ -205,7 +205,6 @@ module.exports = function (grunt) {
     },
     useminPrepare: {
       options: {
-        root: '.tmp',
         dest: '<%= yeoman.dist %>'
       },
       html: '.tmp/index.html'
