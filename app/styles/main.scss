@@ -93,7 +93,7 @@ body {
 
 .les-icons {
   i {
-    // This is just for theThis is bad. Do not do this for real. -Andy
+    // This is just for the lolz. This is bad. Do not do this for real. -Andy
     @for $i from 1 through 370 {
       &:nth-child(#{$i}) {
         color: hsla($i / 2 + 200, 75, 50, 1);
