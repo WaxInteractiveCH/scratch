@@ -1,12 +1,18 @@
+#Temporary or build folders for grunt
 node_modules
 dist
 .grunt
 .tmp
 .sass-cache
-app/bower_components
-
-
+# bower components
+app/bower_components/*
+app/_bower_components/*
+# Password file for grunt-deploy
+.ftppass
 # Editors
 *.sublime-project
 *.sublime-workspace
 nbproject
+# folder backup
+_backup
+_client_delivery

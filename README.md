@@ -61,6 +61,13 @@ Scratch is using
 + <http://twitter.com/andymcfee>
 + <http://github.com/andymcfee>
 
+## Contributors
+
+**Aldo Ferrari**
+
++ <http://twitter.com/aldo_ferrari>
++ <http://github.com/AldoFerrari>
+
 ## Documenting To Do...
 - Using Assemble
 - Font-Awesome + Bower + Grunt
@@ -70,6 +77,7 @@ Scratch is using
 - A "blog"
 - Actual JS testing with Mocha
 - Deploy to gh-pages
+- Creating a yeoman generator
 
 ## Copyright and license
 
