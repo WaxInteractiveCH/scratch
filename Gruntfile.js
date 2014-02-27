@@ -8,7 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-  grunt.loadNpmTasks('assemble');
+    grunt.loadNpmTasks('assemble');
   // show elapsed time at the end
   require('time-grunt')(grunt);
   // load all grunt tasks
@@ -119,7 +119,7 @@ module.exports = function (grunt) {
         assets: 'dist/images',
         partials: ['<%= yeoman.app %>/assemble/partials/*.hbs'],
         helpers: ['helper-path'],
-        plugins: ['permalinks'],
+       plugins: ['assemble-contrib-permalinks'],
         permalinks: {
           structure: ':basename/index.html'
         }

@@ -30,8 +30,8 @@
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.1",
-    "assemble": "~0.4.17",
-    "permalinks": "~0.1.8",
+    "assemble": "~0.4.36",
+    "assemble-contrib-permalinks": "~0.3.4",
     "grunt-gh-pages": "~0.8.1",
     "grunt-recess": "~0.4.0"
   },
