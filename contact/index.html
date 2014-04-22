@@ -10,8 +10,14 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="stylesheet" href="css/main.css"/>
-  <script src="js/vendor/modernizr.js"></script>
+  <!-- build:css(.tmp) ../css/main.css -->
+  <link rel="stylesheet" href="/_bower_components/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- endbuild -->
+  <!-- build:js ../js/vendor/modernizr.js -->
+  <script src="/_bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
 </head>
 <body>
   <!--[if lt IE 10]>
@@ -21,23 +27,17 @@
   <div class="container">
     <div class="header">
       <ul class="nav nav-pills pull-right">
-  <li class=""><a href="">Home</a></li>
-  <li class=""><a href="about">About</a></li>
-  <li class=""><a href="code">Code</a></li>
+  <li class=""><a href="../">Home</a></li>
+  <li class=""><a href="../about">About</a></li>
+  <li class=""><a href="../code">Code</a></li>
+    <li class="active"><a href="../contact">Contact</a></li>
 </ul>
       <h3 class="text-muted">Scratch</h3>
     </div>
 
     
-  <div class="container">
-    <div class="header">
-      <ul class="nav nav-pills pull-right">
-  <li class=""><a href="">Home</a></li>
-  <li class=""><a href="about">About</a></li>
-  <li class=""><a href="code">Code</a></li>
-</ul>
-      <h3 class="text-muted">Scratch</h3>
-    </div>
+ 
+   
 
     <div class="jumbotron">
       <h1>Contact</h1>
@@ -45,34 +45,18 @@
       <p><a class="btn btn-lg btn-primary" href="http://sqliagency.ch">Go to sqliagency.ch</a></p>
     </div>
 
-    <div class="row marketing">
-      <div class="col-lg-6 col-lg-push-3">
-        <h4>About /about</h4>
-        <p>Notice how the link is just /about and not /about.html.  Yeah. Permalinks plugin for Assemble.  It's pretty cool.</p>
-
-        <h4>Bootstrap</h4>
-        <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-        <h4>Modernizr</h4>
-        <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-
-
-        <h4>RequireJS</h4>
-        <p>RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node.</p>
-
-      </div>
-    </div>
-
-    <div class="footer">
-      <p>♥ from the Yeoman team</p>
-    </div>
-  </div>
+ 
+ 
 
 
 
   </div>
 
-    <script src="js/vendor.js"></script>
+    <!-- build:js(app) ../js/vendor.js -->
+  <!-- bower:js -->
+  <script src="/_bower_components/jquery/jquery.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -85,9 +69,26 @@
     ga('send', 'pageview');
   </script>
 
-  <script src="js/main.js"></script>
+  <!-- build:js(app) ../js/main.js -->
+  <script src="/scripts/main.js"></script>
+  <!-- endbuild -->
 
-  <script src="js/plugins.js"></script>
+  <!-- build:js(app) ../js/plugins.js -->
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/affix.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/alert.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/dropdown.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/tooltip.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/modal.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/transition.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/button.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/popover.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/carousel.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/scrollspy.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/collapse.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/tab.js"></script>
+
+  <script src="/scripts/vendor/prism.js"></script>
+  <!-- endbuild -->
 
 
 

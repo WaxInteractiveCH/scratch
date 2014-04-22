@@ -10,8 +10,14 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="stylesheet" href="../css/main.css"/>
-  <script src="../js/vendor/modernizr.js"></script>
+  <!-- build:css(.tmp) ../css/main.css -->
+  <link rel="stylesheet" href="/_bower_components/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- endbuild -->
+  <!-- build:js ../js/vendor/modernizr.js -->
+  <script src="/_bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
 </head>
 <body>
   <!--[if lt IE 10]>
@@ -24,6 +30,7 @@
   <li class=""><a href="../">Home</a></li>
   <li class=""><a href="../about">About</a></li>
   <li class="active"><a href="../code">Code</a></li>
+    <li class=""><a href="../contact">Contact</a></li>
 </ul>
       <h3 class="text-muted">Scratch</h3>
     </div>
@@ -39,11 +46,11 @@
   <div class="col-lg-12">
 
 
-<h2>Syntax Highlighting</h2>
+<h2 id="syntax-highlighting">Syntax Highlighting</h2>
 <p>For syntax highlighting, we are going to use Lea Verou&#39;s <a href="http://prismjs.com/">PrismJS</a>.</p>
-<h4>Why PrismJS?</h4>
+<h4 id="why-prismjs-">Why PrismJS?</h4>
 <p>Because it&#39;s pretty, it&#39;s easy and it works. That&#39;s why.</p>
-<h4>How are we using it?</h4>
+<h4 id="how-are-we-using-it-">How are we using it?</h4>
 <p>First, went and got a <a href="http://prismjs.com/download.html">custum build</a> which included the line-numbers plugin.  More on that...</p>
 <p>The first thing we did was add the JS and CSS in the relevant places:</p>
 <p><code>scripts.hbs</code></p>
@@ -53,7 +60,7 @@
 &lt;!-- endbuild --&gt;</code></pre>
 <p>And I dropped the CSS into a <code>_syntax.scss</code> file and imported it in my main Sass file.</p>
 <p><code>main.scss</code></p>
-<pre><code class="language-scss">@import &#39;syntax&#39;;</code></pre>
+<pre><code class="language-scss"><span class="at_rule">@<span class="keyword">import</span> <span class="string">'syntax'</span>;</span></code></pre>
 <p>So how do you ACTUALLY use it? Well, it&#39;s quite simple: you use markdown. Since we are using Assemble, we can embed markdown anywhere in our <code>.hbs</code> files with the <em>built-in</em> markdown helper:</p>
 <pre><code class="language-markup">{{#markdown}}
 Put your markdown here. *Yay.*
@@ -69,7 +76,7 @@ console.log("Hello, cruel world.");
 
 <p>And it will look like this:</p>
 <pre><code class="language-javascript">console.log(<span class="string">"Hello, cruel world."</span>);</code></pre>
-<h4>But HTML!</h4>
+<h4 id="but-html-">But HTML!</h4>
 <p>The first thing you need to remember is that it&#39;s called markup, not HTML. You write this:</p>
 <pre class="language-markup"><code>```markup
 &lt;div class=&quot;jumbotron&quot;&gt;
@@ -83,7 +90,7 @@ console.log("Hello, cruel world.");
   &lt;h1&gt;Code &lt;i class=&quot;fa fa-code&quot;&gt;&lt;/i&gt;&lt;/h1&gt;
   &lt;p class=&quot;lead&quot;&gt;This is how we do syntax highlighting..&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-<h4>Line Numbers</h4>
+<h4 id="line-numbers">Line Numbers</h4>
 <p>Ok, you want line numbers? You have to cheat a little bit.</p>
 <pre class="language-markup"><code>&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;.class {
   font-weight: bold;
@@ -127,7 +134,11 @@ console.log("Hello, cruel world.");
 
   </div>
 
-    <script src="../js/vendor.js"></script>
+    <!-- build:js(app) ../js/vendor.js -->
+  <!-- bower:js -->
+  <script src="/_bower_components/jquery/jquery.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -140,9 +151,26 @@ console.log("Hello, cruel world.");
     ga('send', 'pageview');
   </script>
 
-  <script src="../js/main.js"></script>
+  <!-- build:js(app) ../js/main.js -->
+  <script src="/scripts/main.js"></script>
+  <!-- endbuild -->
 
-  <script src="../js/plugins.js"></script>
+  <!-- build:js(app) ../js/plugins.js -->
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/affix.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/alert.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/dropdown.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/tooltip.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/modal.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/transition.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/button.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/popover.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/carousel.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/scrollspy.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/collapse.js"></script>
+  <script src="/_bower_components/bootstrap-sass-official/vendor/assets/stylesheets/tab.js"></script>
+
+  <script src="/scripts/vendor/prism.js"></script>
+  <!-- endbuild -->
 
 
 
